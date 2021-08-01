@@ -12,7 +12,7 @@
 
 #### 6. React NAVIGATION
 
-#### 7. React Native MAPS
+#### 7. React Native MAPS - source link: https://github.com/react-native-maps/react-native-maps.git
 
 #### 8. Google Places Auto Complete - LIBRARY source link: https://github.com/FaridSafi/react-native-google-places-autocomplete.git
 
