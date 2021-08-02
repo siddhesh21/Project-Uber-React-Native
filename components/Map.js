@@ -3,14 +3,14 @@ import { StyleSheet, Text, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import tw from "tailwind-react-native-classnames";
 import { selectOrigin, selectDestination } from "../slices/navSlice";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import MapViewDirections from "react-native-maps-directions";
 
 const Map = () => {
   const origin = useSelector(selectOrigin);
   const destination = useSelector(selectDestination);
   const mapRef = useRef(null);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     if (!origin || !destination) return;
 
@@ -19,6 +19,25 @@ const Map = () => {
       edgePadding: { top: 50, left: 50, bottom: 50, right: 50 },
     });
   }, [origin, destination]);
+
+  // Calculate TIME
+
+  useEffect(() => {
+    if (!origin || !destination) return;
+    const getTravelTime = async () => {
+      fetch(
+        `https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${origin.description}&destinations=${destination.description}&key=${GOOGLE_MAPS_APIKEY}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          dispatch(setTravelTimeInformation(data.rows[0].elements[0]));
+          {
+            /**console.log(data); */
+          }
+        });
+    };
+    getTravelTime();
+  }, [origin, destination, GOOGLE_MAPS_APIKEY]);
 
   return (
     <MapView
