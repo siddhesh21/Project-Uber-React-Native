@@ -4,6 +4,7 @@ import tw from "tailwind-react-native-classnames";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { useDispatch } from "react-redux";
 import { setDestination } from "../slices/navSlice";
+import NavFavourites from "../components/NavFavourites";
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ const NavigateCard = () => {
             }}
           />
         </View>
+        <NavFavourites />
       </View>
     </SafeAreaView>
   );

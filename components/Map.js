@@ -14,7 +14,7 @@ const Map = () => {
   useEffect(() => {
     if (!origin || !destination) return;
 
-    // Zoom & Fit to the Map View
+    // Zoom & Fit to the Map View markers
     mapRef.current.fitToSuppliedMarkers(["origin", "destination"], {
       edgePadding: { top: 50, left: 50, bottom: 50, right: 50 },
     });

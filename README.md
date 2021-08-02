@@ -27,3 +27,5 @@
 #### Tailwind React Native ClassNames source: https://github.com/jaredh159/tailwind-react-native-classnames.git
 
 #### React Native Icons: react-native-vector-icons, react-native-safe-area-context
+
+#### Tweaks: Keyboard Avoiding View - Throughout App
